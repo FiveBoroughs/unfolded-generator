@@ -68,8 +68,7 @@ const MainForm = () => {
   const [cornerPicture, setCornerPicture] = useState({
     name: 'default',
     id: 'unfolded/unfolded_logo',
-    url:
-      'https://res.cloudinary.com/dize5fvu6/image/upload/v1602168983/Unfolded/unfolded_logo.jpg',
+    url: `https://res.cloudinary.com/${process.env.CLOUDINARY_BUCKET}/image/upload/v1602168983/Unfolded/unfolded_logo.jpg`,
     opacity: 70,
     placement: 'south_east',
   })
@@ -157,7 +156,7 @@ const MainForm = () => {
 
   return (
     <>
-      <CloudinaryContext cloudName="dize5fvu6">
+      <CloudinaryContext cloudName={process.env.CLOUDINARY_BUCKET}>
         <Form onSubmit={onSubmit}>
           {/* <label htmlFor="message">Message</label>
         <TextAreaField name="message" /> */}
