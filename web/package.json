@@ -21,7 +21,8 @@
     "react": "^16.13.1",
     "react-color": "^2.18.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "web-api-hooks": "^3.0.2"
   },
   "devDependencies": {
     "autoprefixer": "9.8.6",
