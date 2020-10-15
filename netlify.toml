@@ -10,3 +10,6 @@ functions = "api/dist/functions"
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build.environment]
+  CLOUDINARY_BUCKET = "dize5fvu6"
