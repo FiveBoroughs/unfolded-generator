@@ -62,13 +62,10 @@ const uploadImage = async (file, callback) => {
   formData.append('file', file)
   formData.append('upload_preset', 'unfolded')
 
-  fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_BUCKET}/image/upload`,
-    {
-      method: 'POST',
-      body: formData,
-    }
-  )
+  fetch(`https://api.cloudinary.com/v1_1/dize5fvu6/image/upload`, {
+    method: 'POST',
+    body: formData,
+  })
     .then((response) => response.json())
     .then((data) => {
       if (data.secure_url !== '') {
