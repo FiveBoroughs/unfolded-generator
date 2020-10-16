@@ -88,6 +88,7 @@ const MainForm = () => {
     url: `https://res.cloudinary.com/dize5fvu6/image/upload/v1602764818/unfolded/text_logo.png`,
     opacity: 70,
     placement: 'south_east',
+    size: 200,
   })
   const [innerBorder, setInnerBorder] = useLocalStorage('innerBorder', {
     enabled: true,
@@ -165,6 +166,7 @@ const MainForm = () => {
           placement: data.cornerPlacement
             ? data.cornerPlacement
             : cornerPicture.placement,
+          size: data.cornerSize ? data.cornerSize : cornerPicture.size,
         })
       })
     else {
@@ -178,6 +180,7 @@ const MainForm = () => {
         placement: data.cornerPlacement
           ? data.cornerPlacement
           : cornerPicture.placement,
+        size: data.cornerSize ? data.cornerSize : cornerPicture.size,
       })
     }
 
@@ -199,7 +202,7 @@ const MainForm = () => {
   return (
     <>
       <CloudinaryContext cloudName="dize5fvu6">
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} data-netlify="true">
           <div className="border-b border-gray-300 ">
             <div className="px-4 py-5 sm:px-6 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
               <div>
@@ -338,6 +341,20 @@ const MainForm = () => {
                         name="cornerOpacity"
                         defaultValue={cornerPicture.opacity}
                         className="ml-auto w-32"
+                      />
+                    </div>
+                    <div className="flex border-t border-gray-300 py-2">
+                      <label htmlFor="cornerSize" className="text-gray-500">
+                        Size
+                      </label>
+                      <RangeField
+                        id="cornerSize"
+                        name="cornerSize"
+                        defaultValue={cornerPicture.size}
+                        className="ml-auto w-32"
+                        min="150"
+                        step="100"
+                        max="1050"
                       />
                     </div>
                   </div>
@@ -677,7 +694,7 @@ const MainForm = () => {
                           border={
                             innerBorder.size +
                             'px_solid_rgb:' +
-                            innerBorder.color.replace('#', '')
+                            innerBorder.color.replace(/#/gm, '')
                           }
                         />
                       )}
@@ -686,14 +703,14 @@ const MainForm = () => {
                           border={
                             mainBorder.size +
                             'px_solid_rgb:' +
-                            mainBorder.color.replace('#', '')
+                            mainBorder.color.replace(/#/gm, '')
                           }
                         />
                       )}
                       <Transformation
                         gravity={cornerPicture.placement}
-                        height="100"
-                        overlay={cornerPicture.id.replace('/', ':')}
+                        width={cornerPicture.size}
+                        overlay={cornerPicture.id.replace(/\//gm, ':')}
                         x="20"
                         y="20"
                         crop="pad"
@@ -704,7 +721,7 @@ const MainForm = () => {
                           border={
                             outerBorder.size +
                             'px_solid_rgb:' +
-                            outerBorder.color.replace('#', '')
+                            outerBorder.color.replace(/#/gm, '')
                           }
                         />
                       )}

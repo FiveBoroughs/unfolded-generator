@@ -1,5 +1,6 @@
 # unfolded-generator
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aef0344a-1ce1-401a-914c-0a06dea6b465/deploy-status)](https://app.netlify.com/sites/loving-payne-73a842/deploys)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aef0344a-1ce1-401a-914c-0a06dea6b465/deploy-status)](https://app.netlify.com/sites/unfolded-generator/deploys)
 
 Setup
 
@@ -10,11 +11,11 @@ yarn install
 Dev
 
 ```terminal
-yarn redwood dev
+yarn rw dev
 ```
 
 Deploy
 
 ```terminal
-yarn rw generate deploy netlify
+yarn rw g deploy netlify
 ```
